@@ -44,9 +44,10 @@ export default Vue.extend({
     unopenedEmails() {
       const openedEmailsArray: string[] = this.openedEmailsArray;
       const sentEmailsArray: string[] = this.sentEmailsArray;
-      return sentEmailsArray.filter(
+      const emails = sentEmailsArray.filter(
         (email: string) => !openedEmailsArray.includes(email),
       );
+      return [...new Set(emails)];
     },
   },
 });
